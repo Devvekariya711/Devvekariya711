@@ -1,0 +1,12 @@
+{
+  "title": "TECHNICAL PROFICIENCY",
+  "axes": [
+    { "label": "AI & Agent Architecture", "value": 94 },
+    { "label": "Autonomous Automation", "value": 90 },
+    { "label": "Full-Stack & Systems",  "value": 86 },
+    { "label": "Python & Backend APIs", "value": 92 },
+    { "label": "DevOps & CI/CD",        "value": 85 },
+    { "label": "Creative Engineering",  "value": 88 },
+    { "label": "TypeScript & Frontend", "value": 82 }
+  ]
+}

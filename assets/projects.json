@@ -1,0 +1,20 @@
+{
+  "projects": [
+    {
+      "repo": "automated_devops_agent",
+      "description": "Multi-agent AI system for automated code review, PR analysis & 240x faster bug mitigation using Gemini & Google ADK."
+    },
+    {
+      "repo": "ai-development-workflow",
+      "description": "The 8-phase Prompt Stack architecture for zero-to-production AI-assisted software build loops."
+    },
+    {
+      "repo": "linguabridge",
+      "description": "Offline edge translation stack fusing Whisper speech recognition, neural machine translation, and text-to-speech."
+    },
+    {
+      "repo": "beatsync_mypy",
+      "description": "High-precision audio synchronisation engine and spatial sound orchestrator built for low-latency media streams."
+    }
+  ]
+}

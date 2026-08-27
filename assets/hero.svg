@@ -1,161 +1,199 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 680">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" width="100%">
 <defs>
-  <!-- Grid pattern -->
-  <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
-    <path d="M28 0H0V28" fill="none" stroke="#585C62" stroke-opacity=".08"/>
+  <!-- Cyber Grid Pattern -->
+  <pattern id="heroGrid" width="35" height="35" patternUnits="userSpaceOnUse">
+    <path d="M 35 0 L 0 0 0 35" fill="none" stroke="#585C62" stroke-width="0.8" stroke-opacity="0.12"/>
+    <circle cx="0" cy="0" r="1" fill="#F4A900" fill-opacity="0.25"/>
   </pattern>
 
-  <!-- Amber gradient -->
-  <linearGradient id="amber" x1="0" y1="0" x2="1" y2="1">
-    <stop stop-color="#F4A900"/>
-    <stop offset="1" stop-color="#FFCA28"/>
+  <pattern id="dotGrid" width="16" height="16" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1" fill="#9BA1A7" fill-opacity="0.15"/>
+  </pattern>
+
+  <!-- Gradients -->
+  <linearGradient id="amberGold" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#F4A900"/>
+    <stop offset="50%" stop-color="#FFCA28"/>
+    <stop offset="100%" stop-color="#E59400"/>
   </linearGradient>
 
-  <!-- Radial glow for portrait circle -->
-  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-    <stop offset="0%" stop-color="#FFCA28" stop-opacity=".5"/>
-    <stop offset="70%" stop-color="#F4A900" stop-opacity=".25"/>
+  <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#121315"/>
+    <stop offset="100%" stop-color="#30343a"/>
+  </linearGradient>
+
+  <linearGradient id="laserBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#F4A900" stop-opacity="0"/>
+    <stop offset="50%" stop-color="#FFCA28" stop-opacity="0.9"/>
+    <stop offset="100%" stop-color="#F4A900" stop-opacity="0"/>
+  </linearGradient>
+
+  <radialGradient id="portalGlow" cx="50%" cy="50%" r="50%">
+    <stop offset="0%" stop-color="#FFCA28" stop-opacity="0.5"/>
+    <stop offset="60%" stop-color="#F4A900" stop-opacity="0.25"/>
     <stop offset="100%" stop-color="#F4A900" stop-opacity="0"/>
   </radialGradient>
 
-  <!-- Portrait clip and shadow -->
-  <clipPath id="portraitClip"><circle cx="1035" cy="340" r="275"/></clipPath>
-  <filter id="shadow"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-opacity=".18"/></filter>
+  <!-- Filters -->
+  <filter id="amberGlow" x="-20%" y="-20%" width="140%" height="140%">
+    <feGaussianBlur stdDeviation="8" result="blur"/>
+    <feMerge>
+      <feMergeNode in="blur"/>
+      <feMergeNode in="SourceGraphic"/>
+    </feMerge>
+  </filter>
 
-  <!-- Reveal mask — wipes left-to-right over 2.4s -->
-  <mask id="reveal">
-    <rect width="0" height="680" fill="white">
-      <animate attributeName="width" from="0" to="1400" dur="2.4s" fill="freeze"/>
+  <filter id="heavyShadow" x="-30%" y="-30%" width="160%" height="160%">
+    <feDropShadow dx="0" dy="16" stdDeviation="22" flood-color="#121315" flood-opacity="0.25"/>
+  </filter>
+
+  <!-- Masks & Clips -->
+  <clipPath id="portraitPortal">
+    <circle cx="1060" cy="350" r="280"/>
+  </clipPath>
+
+  <mask id="smoothWipe">
+    <rect x="0" y="0" width="0" height="700" fill="white">
+      <animate attributeName="width" from="0" to="1400" dur="2.2s" fill="freeze" calcMode="spline" keySplines="0.25 0.1 0.25 1"/>
     </rect>
   </mask>
-
-  <!-- Noise texture filter -->
-  <filter id="noise">
-    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
-    <feColorMatrix type="saturate" values="0"/>
-    <feBlend in="SourceGraphic" mode="multiply" result="noisy"/>
-    <feComponentTransfer>
-      <feFuncA type="linear" slope="0.06"/>
-    </feComponentTransfer>
-  </filter>
 </defs>
 
-<!-- Background -->
-<rect width="1400" height="680" fill="#EBECEF"/>
-<rect width="1400" height="680" fill="url(#grid)"/>
-<rect width="1400" height="680" filter="url(#noise)" opacity=".4"/>
+<!-- Base Background Canvas -->
+<rect width="1400" height="700" rx="24" fill="#EBECEF"/>
+<rect width="1400" height="700" rx="24" fill="url(#heroGrid)"/>
+<rect x="60" y="40" width="600" height="620" fill="url(#dotGrid)"/>
 
-<!-- Left accent bar with fade-in -->
-<rect x="60" y="54" width="14" height="290" fill="#F4A900" opacity="0">
-  <animate attributeName="opacity" from="0" to="1" dur="0.8s" begin="0.3s" fill="freeze"/>
+<!-- Ambient Decorative Accent Bars -->
+<rect x="50" y="50" width="10" height="320" rx="5" fill="url(#amberGold)">
+  <animate attributeName="height" from="0" to="320" dur="1.2s" fill="freeze"/>
 </rect>
 
-<!-- Portrait circle glow ring — pulsing -->
-<circle cx="1035" cy="340" r="310" fill="url(#glow)" opacity="0">
-  <animate attributeName="opacity" values="0;.6;.4;.6" dur="4s" begin="0.5s" fill="freeze"/>
-  <animate attributeName="r" values="310;320;310" dur="5s" repeatCount="indefinite"/>
-</circle>
+<!-- Right Side: Circular Portrait Portal & Rotating HUD Halo -->
+<g filter="url(#heavyShadow)">
+  <!-- Outer Pulsing Glow Aura -->
+  <circle cx="1060" cy="350" r="325" fill="url(#portalGlow)">
+    <animate attributeName="r" values="320;345;320" dur="4s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.6;0.9;0.6" dur="4s" repeatCount="indefinite"/>
+  </circle>
 
-<!-- Portrait circle background -->
-<g filter="url(#shadow)">
-  <circle cx="1035" cy="340" r="300" fill="url(#amber)"/>
-  <circle cx="1035" cy="340" r="274" fill="#FFCA28" opacity=".28"/>
+  <!-- Glowing Solid Disc Ring -->
+  <circle cx="1060" cy="350" r="298" fill="url(#amberGold)"/>
+  <circle cx="1060" cy="350" r="285" fill="#121315" opacity="0.08"/>
 </g>
 
-<!-- Portrait image — masked with reveal animation -->
-<g clip-path="url(#portraitClip)" mask="url(#reveal)">
-  <image href="portrait-side.png" x="730" y="30" width="610" height="915" preserveAspectRatio="xMidYMid slice"/>
-</g>
-
-<!-- Floating particles -->
-<g fill="#F4A900">
-  <circle cx="180" cy="420" r="2.5" opacity="0">
-    <animate attributeName="opacity" values="0;.6;0" dur="3.5s" repeatCount="indefinite" begin="1s"/>
-    <animate attributeName="cy" values="420;400;420" dur="3.5s" repeatCount="indefinite" begin="1s"/>
+<!-- Rotating Cybernetic Reticle HUD Rings -->
+<g transform="translate(1060, 350)" stroke="#F4A900" fill="none" opacity="0.85">
+  <!-- Ring 1: Clockwise Dashed -->
+  <circle r="312" stroke-width="2" stroke-dasharray="16 12 4 12" opacity="0.75">
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="24s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="340" cy="180" r="1.8" opacity="0">
-    <animate attributeName="opacity" values="0;.5;0" dur="4s" repeatCount="indefinite" begin="2s"/>
-    <animate attributeName="cy" values="180;160;180" dur="4s" repeatCount="indefinite" begin="2s"/>
+  <!-- Ring 2: Counter-Clockwise Segmented -->
+  <circle r="335" stroke-width="1.5" stroke-dasharray="40 30 8 30" stroke="#121315" opacity="0.45">
+    <animateTransform attributeName="transform" type="rotate" from="360" to="0" dur="32s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="520" cy="580" r="2" opacity="0">
-    <animate attributeName="opacity" values="0;.4;0" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-    <animate attributeName="cy" values="580;560;580" dur="3s" repeatCount="indefinite" begin="0.5s"/>
-  </circle>
-  <circle cx="650" cy="120" r="1.5" opacity="0">
-    <animate attributeName="opacity" values="0;.55;0" dur="4.5s" repeatCount="indefinite" begin="1.5s"/>
-    <animate attributeName="cx" values="650;660;650" dur="4.5s" repeatCount="indefinite" begin="1.5s"/>
-  </circle>
-  <circle cx="280" cy="600" r="2.2" opacity="0">
-    <animate attributeName="opacity" values="0;.35;0" dur="3.8s" repeatCount="indefinite" begin="3s"/>
-    <animate attributeName="cy" values="600;585;600" dur="3.8s" repeatCount="indefinite" begin="3s"/>
+  <!-- Ring 3: Fine Crosshair ticks -->
+  <circle r="350" stroke-width="1" stroke-dasharray="2 18" stroke="#FFCA28" opacity="0.6">
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="48s" repeatCount="indefinite"/>
   </circle>
 </g>
 
-<!-- Main text — staggered fade-in -->
-<g font-family="'Segoe UI', Arial, Helvetica, sans-serif" fill="#121315">
-  <!-- Name line 1 -->
-  <text x="105" y="168" font-size="92" font-weight="900" letter-spacing="-4" opacity="0">
+<!-- User Portrait Image with Mask Reveal -->
+<g clip-path="url(#portraitPortal)" mask="url(#smoothWipe)">
+  <image href="portrait-side.png" x="720" y="35" width="680" height="1020" preserveAspectRatio="xMidYMid slice"/>
+</g>
+
+<!-- Floating Ambient Energy Particles -->
+<g fill="#F4A900" filter="url(#amberGlow)">
+  <circle cx="220" cy="120" r="3">
+    <animate attributeName="cy" values="120;95;120" dur="3.5s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.8;0.3" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="480" cy="240" r="2.5">
+    <animate attributeName="cy" values="240;210;240" dur="4.2s" repeatCount="indefinite" begin="0.8s"/>
+    <animate attributeName="opacity" values="0.2;0.7;0.2" dur="4.2s" repeatCount="indefinite" begin="0.8s"/>
+  </circle>
+  <circle cx="310" cy="520" r="3.5">
+    <animate attributeName="cy" values="520;490;520" dur="5s" repeatCount="indefinite" begin="1.5s"/>
+    <animate attributeName="opacity" values="0.4;0.9;0.4" dur="5s" repeatCount="indefinite" begin="1.5s"/>
+  </circle>
+  <circle cx="670" cy="420" r="2">
+    <animate attributeName="cy" values="420;395;420" dur="3.8s" repeatCount="indefinite" begin="2s"/>
+    <animate attributeName="opacity" values="0.3;0.75;0.3" dur="3.8s" repeatCount="indefinite" begin="2s"/>
+  </circle>
+</g>
+
+<!-- Left Typography & Telemetry Content -->
+<g font-family="'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif">
+
+  <!-- Top Badge / System Moniker -->
+  <g transform="translate(85, 75)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.2s" fill="freeze"/>
+    <rect width="210" height="28" rx="6" fill="#121315"/>
+    <circle cx="16" cy="14" r="4.5" fill="#39D353">
+      <animate attributeName="opacity" values="1;0.4;1" dur="1.5s" repeatCount="indefinite"/>
+    </circle>
+    <text x="28" y="19" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700" fill="#FFCA28" letter-spacing="2">SYSTEM :: ACTIVE</text>
+    <text x="145" y="19" font-family="'JetBrains Mono', monospace" font-size="10" fill="#9BA1A7">v4.2</text>
+  </g>
+
+  <!-- Big Name Typography -->
+  <text x="85" y="180" font-size="96" font-weight="900" letter-spacing="-4" fill="#121315" opacity="0">
     DEV
     <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.4s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 20" to="0 0" dur="0.6s" begin="0.4s" fill="freeze"/>
   </text>
-  <!-- Name line 2 -->
-  <text x="105" y="258" font-size="92" font-weight="900" letter-spacing="-4" opacity="0">
+  <text x="85" y="270" font-size="96" font-weight="900" letter-spacing="-4" fill="url(#amberGold)" filter="url(#amberGlow)" opacity="0">
     VEKARIYA
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.7s" fill="freeze"/>
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="0.6s" fill="freeze"/>
+    <animateTransform attributeName="transform" type="translate" from="0 20" to="0 0" dur="0.6s" begin="0.6s" fill="freeze"/>
   </text>
-  <!-- Subtitle -->
-  <text x="110" y="306" font-size="22" font-weight="700" letter-spacing="6" opacity="0">
-    ENGINEERING / AI / AUTOMATION
+
+  <!-- Subtitle Tagline -->
+  <g transform="translate(90, 320)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.8s" fill="freeze"/>
+    <rect x="0" y="-18" width="4" height="24" fill="#F4A900"/>
+    <text x="16" y="0" font-size="20" font-weight="800" letter-spacing="4" fill="#121315">AI &amp; AUTONOMOUS SYSTEMS ARCHITECT</text>
+  </g>
+
+  <text x="90" y="358" font-size="13" font-weight="600" letter-spacing="3" fill="#585C62" opacity="0">
+    EDGE INTELLIGENCE • MULTI-AGENT WORKFLOWS • CREATIVE ENGINEERING
     <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.0s" fill="freeze"/>
   </text>
-  <!-- Tagline -->
-  <text x="110" y="345" font-size="14" letter-spacing="3" fill="#585C62" opacity="0">
-    EDGE ARCHITECT — BUILD / BREAK / REBUILD
-    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.3s" fill="freeze"/>
-  </text>
 
-  <!-- Status block -->
-  <text x="110" y="570" font-size="15" font-weight="700" letter-spacing="4" opacity="0">
-    SYSTEM STATUS
-    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="1.6s" fill="freeze"/>
-  </text>
-  <text x="110" y="604" font-size="32" font-weight="900" opacity="0">
-    BUILDING THINGS THAT MOVE
-    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.8s" fill="freeze"/>
-  </text>
-  <text x="110" y="630" font-size="13" letter-spacing="2" fill="#585C62" opacity="0">
-    AI · DEVTOOLS · RAG · AGENTS · CREATIVE SYSTEMS
-    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="2.0s" fill="freeze"/>
-  </text>
+  <!-- Technical Telemetry Hud Box -->
+  <g transform="translate(85, 420)" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.6s" begin="1.2s" fill="freeze"/>
+    <rect width="480" height="195" rx="14" fill="#121315" filter="url(#heavyShadow)"/>
+    <rect x="0" y="0" width="480" height="195" rx="14" fill="none" stroke="#30343a" stroke-width="1.5"/>
+    <rect x="18" y="16" width="4" height="163" rx="2" fill="#F4A900"/>
+
+    <!-- Terminal Header -->
+    <text x="36" y="42" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#F4A900" letter-spacing="2">OPERATIONAL MATRIX</text>
+    <text x="430" y="42" font-family="'JetBrains Mono', monospace" font-size="11" fill="#585C62">01/04</text>
+    <line x1="36" y1="54" x2="445" y2="54" stroke="#25282e" stroke-width="1"/>
+
+    <!-- Readout Items -->
+    <text x="36" y="82" font-family="'JetBrains Mono', monospace" font-size="12" fill="#9BA1A7">MISSION   <tspan fill="#EBECEF" font-weight="700">:: BUILD SYSTEMS THAT RUN AUTONOMOUSLY</tspan></text>
+    <text x="36" y="112" font-family="'JetBrains Mono', monospace" font-size="12" fill="#9BA1A7">STACK     <tspan fill="#FFCA28" font-weight="700">:: PYTHON • AGENTS • GEMINI • TS • FASTAPI</tspan></text>
+    <text x="36" y="142" font-family="'JetBrains Mono', monospace" font-size="12" fill="#9BA1A7">VELOCITY  <tspan fill="#39D353" font-weight="700">:: 240X SPEEDUP • 74% DEFECT DETECTION</tspan></text>
+    <text x="36" y="172" font-family="'JetBrains Mono', monospace" font-size="12" fill="#9BA1A7">LOCATION  <tspan fill="#EBECEF">:: GLOBAL EDGE CLUSTER • GUJARAT, IN</tspan></text>
+  </g>
 </g>
 
-<!-- Corner accents -->
-<g stroke="#121315" stroke-width="3" fill="none" opacity="0">
-  <animate attributeName="opacity" from="0" to=".8" dur="0.5s" begin="2.2s" fill="freeze"/>
-  <path d="M1200 70H1325V195"/>
-  <path d="M1130 560H1270V420"/>
-  <path d="M80 470H200"/>
+<!-- Corner Cybernetic Framing Accents -->
+<g stroke="#121315" stroke-width="2.5" fill="none" opacity="0.65">
+  <path d="M 30 50 L 30 30 L 50 30"/>
+  <path d="M 1370 50 L 1370 30 L 1350 30"/>
+  <path d="M 30 650 L 30 670 L 50 670"/>
+  <path d="M 1370 650 L 1370 670 L 1350 670"/>
 </g>
 
-<!-- Dot grid decoration -->
-<g fill="#121315" opacity="0">
-  <animate attributeName="opacity" from="0" to=".85" dur="0.4s" begin="2.4s" fill="freeze"/>
-  <circle cx="95" cy="490" r="4"/><circle cx="112" cy="490" r="4"/><circle cx="129" cy="490" r="4"/>
-  <circle cx="95" cy="508" r="4"/><circle cx="112" cy="508" r="4"/><circle cx="129" cy="508" r="4"/>
-</g>
+<!-- Sweeping Laser Scan Line -->
+<rect x="0" y="0" width="1400" height="3" fill="url(#laserBeam)" opacity="0.75">
+  <animate attributeName="y" values="0;700;0" dur="7s" repeatCount="indefinite"/>
+</rect>
 
-<!-- Build counter -->
-<g font-family="monospace" font-size="14" fill="#121315" opacity="0">
-  <animate attributeName="opacity" from="0" to=".65" dur="0.4s" begin="2.5s" fill="freeze"/>
-  <text x="1220" y="622">01 / 09</text>
-  <text x="1220" y="642">PROFILE.EXE</text>
-</g>
-
-<!-- Animated scan line -->
-<line x1="60" y1="0" x2="60" y2="680" stroke="#F4A900" stroke-width="1" opacity="0">
-  <animate attributeName="opacity" values="0;.3;0" dur="3s" begin="2.4s" repeatCount="indefinite"/>
-  <animate attributeName="x1" values="60;1400;60" dur="6s" begin="2.4s" repeatCount="indefinite"/>
-  <animate attributeName="x2" values="60;1400;60" dur="6s" begin="2.4s" repeatCount="indefinite"/>
-</line>
+<!-- Right Bottom Coordinates -->
+<text x="1340" y="675" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="11" fill="#585C62" opacity="0.8">21.1702° N, 72.8311° E // DEVVEKARIYA</text>
 </svg>
-

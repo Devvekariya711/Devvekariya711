@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%">
+<defs>
+  <linearGradient id="barAmber" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#F4A900"/>
+    <stop offset="100%" stop-color="#FFCA28"/>
+  </linearGradient>
+
+  <filter id="barGlowFilter">
+    <feDropShadow dx="0" dy="0" stdDeviation="4" flood-color="#F4A900" flood-opacity="0.35"/>
+  </filter>
+
+  <pattern id="telemetryGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+    <path d="M 24 0 L 0 0 0 24" fill="none" stroke="#585C62" stroke-width="0.5" stroke-opacity="0.1"/>
+  </pattern>
+</defs>
+
+<!-- Card Base -->
+<rect width="1200" height="380" rx="20" fill="#121315"/>
+<rect width="1200" height="380" rx="20" fill="url(#telemetryGrid)"/>
+<rect width="1200" height="380" rx="20" fill="none" stroke="#30343a" stroke-width="1.5"/>
+
+<!-- Left Side: Progress & Execution Telemetry -->
+<g transform="translate(40, 35)">
+  <text x="0" y="16" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#F4A900" letter-spacing="2">ACTIVE PIPELINES &amp; EXECUTION STATUS</text>
+  <line x1="0" y1="28" x2="560" y2="28" stroke="#25282e" stroke-width="1"/>
+
+  <!-- Bar 1: Multi-Agent AI Architecture -->
+  <g transform="translate(0, 50)" font-family="'JetBrains Mono', monospace">
+    <text x="0" y="14" font-size="12" font-weight="600" fill="#EBECEF">MULTI-AGENT AI ARCHITECTURE</text>
+    <text x="560" y="14" font-size="12" font-weight="700" fill="#FFCA28" text-anchor="end">95%</text>
+    <rect x="0" y="24" width="560" height="12" rx="6" fill="#202328"/>
+    <rect x="0" y="24" width="532" height="12" rx="6" fill="url(#barAmber)" filter="url(#barGlowFilter)">
+      <animate attributeName="width" from="0" to="532" dur="1.4s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <!-- Bar 2: Autonomous Dev Tooling -->
+  <g transform="translate(0, 110)" font-family="'JetBrains Mono', monospace">
+    <text x="0" y="14" font-size="12" font-weight="600" fill="#EBECEF">AUTONOMOUS DEV TOOLING &amp; CI/CD</text>
+    <text x="560" y="14" font-size="12" font-weight="700" fill="#FFCA28" text-anchor="end">90%</text>
+    <rect x="0" y="24" width="560" height="12" rx="6" fill="#202328"/>
+    <rect x="0" y="24" width="504" height="12" rx="6" fill="url(#barAmber)" filter="url(#barGlowFilter)">
+      <animate attributeName="width" from="0" to="504" dur="1.6s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <!-- Bar 3: Speech & Audio Synthesis -->
+  <g transform="translate(0, 170)" font-family="'JetBrains Mono', monospace">
+    <text x="0" y="14" font-size="12" font-weight="600" fill="#EBECEF">SPEECH &amp; AUDIO SYNCHRONISATION</text>
+    <text x="560" y="14" font-size="12" font-weight="700" fill="#FFCA28" text-anchor="end">85%</text>
+    <rect x="0" y="24" width="560" height="12" rx="6" fill="#202328"/>
+    <rect x="0" y="24" width="476" height="12" rx="6" fill="url(#barAmber)" filter="url(#barGlowFilter)">
+      <animate attributeName="width" from="0" to="476" dur="1.8s" fill="freeze"/>
+    </rect>
+  </g>
+
+  <!-- Bar 4: Production Full-Stack Velocity -->
+  <g transform="translate(0, 230)" font-family="'JetBrains Mono', monospace">
+    <text x="0" y="14" font-size="12" font-weight="600" fill="#EBECEF">FULL-STACK &amp; EDGE DEPLOYMENT</text>
+    <text x="560" y="14" font-size="12" font-weight="700" fill="#FFCA28" text-anchor="end">92%</text>
+    <rect x="0" y="24" width="560" height="12" rx="6" fill="#202328"/>
+    <rect x="0" y="24" width="515" height="12" rx="6" fill="url(#barAmber)" filter="url(#barGlowFilter)">
+      <animate attributeName="width" from="0" to="515" dur="2.0s" fill="freeze"/>
+    </rect>
+  </g>
+</g>
+
+<!-- Divider -->
+<line x1="640" y1="45" x2="640" y2="335" stroke="#25282e" stroke-width="1.5" stroke-dasharray="4 6"/>
+
+<!-- Right Side: Philosophy Manifesto & Core Directives -->
+<g transform="translate(680, 35)" font-family="'Segoe UI', -apple-system, sans-serif">
+  <text x="0" y="16" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#FFCA28" letter-spacing="2">CORE ENGINEERING DIRECTIVES</text>
+  <line x1="0" y1="28" x2="480" y2="28" stroke="#25282e" stroke-width="1"/>
+
+  <!-- Quote Callout Box -->
+  <g transform="translate(0, 50)">
+    <rect width="480" height="135" rx="12" fill="#181a1e" stroke="#30343a" stroke-width="1"/>
+    <rect x="14" y="14" width="4" height="107" rx="2" fill="#F4A900"/>
+
+    <text x="32" y="42" font-size="15" font-style="italic" font-weight="600" fill="#EBECEF">
+      "Make the system useful first.
+    </text>
+    <text x="32" y="66" font-size="15" font-style="italic" font-weight="600" fill="#EBECEF">
+      Make it resilient enough to run unassisted.
+    </text>
+    <text x="32" y="90" font-size="15" font-style="italic" font-weight="600" fill="#FFCA28">
+      Make it beautiful enough that people want to use it twice."
+    </text>
+    <text x="32" y="118" font-family="'JetBrains Mono', monospace" font-size="11" fill="#9BA1A7">— DEV VEKARIYA // ARCHITECTURE MANIFESTO</text>
+  </g>
+
+  <!-- Live Telemetry Status Readout -->
+  <g transform="translate(0, 210)" font-family="'JetBrains Mono', monospace" font-size="11">
+    <rect width="480" height="75" rx="10" fill="#15171b" stroke="#25282e" stroke-width="1"/>
+    
+    <g transform="translate(18, 26)">
+      <circle cx="0" cy="0" r="4" fill="#39D353">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="12" y="4" fill="#EBECEF">AI AGENT CORE: <tspan fill="#39D353">OPTIMAL</tspan></text>
+
+      <circle cx="230" cy="0" r="4" fill="#FFCA28">
+        <animate attributeName="opacity" values="1;0.4;1" dur="1.8s" repeatCount="indefinite"/>
+      </circle>
+      <text x="242" y="4" fill="#EBECEF">RAG PIPELINE: <tspan fill="#FFCA28">SYNCED</tspan></text>
+    </g>
+
+    <g transform="translate(18, 52)">
+      <circle cx="0" cy="0" r="4" fill="#F4A900">
+        <animate attributeName="opacity" values="1;0.3;1" dur="1.5s" repeatCount="indefinite"/>
+      </circle>
+      <text x="12" y="4" fill="#EBECEF">BUILD SPEED: <tspan fill="#F4A900">240X MULTIPLIER</tspan></text>
+
+      <circle cx="230" cy="0" r="4" fill="#39D353">
+        <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
+      </circle>
+      <text x="242" y="4" fill="#EBECEF">DEPLOY TARGET: <tspan fill="#39D353">MAIN BRANCH</tspan></text>
+    </g>
+  </g>
+</g>
+</svg>
