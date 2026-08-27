@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520">
+<defs>
+  <linearGradient id="radarFill" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#F4A900" stop-opacity=".35"/>
+    <stop offset="1" stop-color="#FFCA28" stop-opacity=".15"/>
+  </linearGradient>
+  <filter id="radarGlow">
+    <feGaussianBlur stdDeviation="3" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+
+<!-- Background -->
+<rect width="900" height="520" rx="28" fill="#121315"/>
+
+<!-- Subtle grid -->
+<g stroke="#585C62" stroke-opacity=".08">
+  <line x1="0" y1="130" x2="900" y2="130"/>
+  <line x1="0" y1="260" x2="900" y2="260"/>
+  <line x1="0" y1="390" x2="900" y2="390"/>
+  <line x1="225" y1="0" x2="225" y2="520"/>
+  <line x1="450" y1="0" x2="450" y2="520"/>
+  <line x1="675" y1="0" x2="675" y2="520"/>
+</g>
+
+<g transform="translate(450 265)">
+
+  <!-- Pentagon grid rings -->
+  <g fill="none" stroke="#585C62" stroke-opacity=".55">
+    <polygon points="0,-200 190,-86 118,162 -118,162 -190,-86" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.1s" fill="freeze"/>
+    </polygon>
+    <polygon points="0,-150 143,-65 88,121 -88,121 -143,-65" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.3s" fill="freeze"/>
+    </polygon>
+    <polygon points="0,-100 95,-43 59,81 -59,81 -95,-43" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.5s" fill="freeze"/>
+    </polygon>
+    <polygon points="0,-50 48,-22 29,40 -29,40 -48,-22" opacity="0">
+      <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.7s" fill="freeze"/>
+    </polygon>
+  </g>
+
+  <!-- Axis lines -->
+  <g stroke="#F4A900" stroke-width="1.5" opacity="0">
+    <animate attributeName="opacity" from="0" to=".5" dur="0.5s" begin="0.9s" fill="freeze"/>
+    <line x1="0" y1="0" x2="0" y2="-200"/>
+    <line x1="0" y1="0" x2="190" y2="-86"/>
+    <line x1="0" y1="0" x2="118" y2="162"/>
+    <line x1="0" y1="0" x2="-118" y2="162"/>
+    <line x1="0" y1="0" x2="-190" y2="-86"/>
+  </g>
+
+  <!-- Data polygon — stroke draw-in -->
+  <polygon
+    points="0,-178 161,-73 96,132 -98,112 -160,-67"
+    fill="url(#radarFill)"
+    stroke="#F4A900"
+    stroke-width="3.5"
+    stroke-linejoin="round"
+    stroke-dasharray="1000"
+    stroke-dashoffset="1000"
+    filter="url(#radarGlow)"
+    opacity="0"
+  >
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.1s" fill="freeze"/>
+    <animate attributeName="stroke-dashoffset" from="1000" to="0" dur="2.2s" begin="1.1s" fill="freeze"/>
+  </polygon>
+
+  <!-- Data point dots — appear after polygon draws -->
+  <g fill="#FFCA28" opacity="0">
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="2.8s" fill="freeze"/>
+    <circle cx="0" cy="-178" r="5"/>
+    <circle cx="161" cy="-73" r="5"/>
+    <circle cx="96" cy="132" r="5"/>
+    <circle cx="-98" cy="112" r="5"/>
+    <circle cx="-160" cy="-67" r="5"/>
+  </g>
+
+  <!-- Center node — pulsing -->
+  <circle r="8" fill="#FFCA28" filter="url(#radarGlow)">
+    <animate attributeName="r" values="6;10;6" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values=".7;1;.7" dur="2s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- Rotating scan line -->
+  <line x1="0" y1="0" x2="0" y2="-200" stroke="#F4A900" stroke-width="1" opacity=".15">
+    <animateTransform attributeName="transform" type="rotate" from="0" to="360" dur="8s" repeatCount="indefinite"/>
+  </line>
+</g>
+
+<!-- Labels with staggered fade-in -->
+<g font-family="'JetBrains Mono', 'Cascadia Code', monospace" fill="#EBECEF">
+  <!-- Title -->
+  <text x="42" y="48" font-size="13" fill="#F4A900" letter-spacing="2" opacity="0">
+    SKILL RADAR // LIVE BUILD
+    <animate attributeName="opacity" from="0" to="1" dur="0.5s" begin="0.2s" fill="freeze"/>
+  </text>
+  <text x="42" y="68" font-size="10" fill="#585C62" letter-spacing="1" opacity="0">
+    SELF-RATED · 0–100 SCALE
+    <animate attributeName="opacity" from="0" to=".6" dur="0.5s" begin="0.4s" fill="freeze"/>
+  </text>
+
+  <!-- Axis labels -->
+  <text x="450" y="62" text-anchor="middle" font-size="14" opacity="0">
+    AI / ML
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="3.0s" fill="freeze"/>
+  </text>
+  <text x="770" y="186" font-size="14" opacity="0">
+    AUTOMATION
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="3.2s" fill="freeze"/>
+  </text>
+  <text x="655" y="460" font-size="14" opacity="0">
+    FULL-STACK
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="3.4s" fill="freeze"/>
+  </text>
+  <text x="158" y="460" font-size="14" opacity="0">
+    SYSTEMS
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="3.6s" fill="freeze"/>
+  </text>
+  <text x="32" y="186" font-size="14" opacity="0">
+    CREATIVE
+    <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="3.8s" fill="freeze"/>
+  </text>
+
+  <!-- Value labels near data points -->
+  <g font-size="11" fill="#F4A900" opacity="0">
+    <animate attributeName="opacity" from="0" to=".8" dur="0.4s" begin="3.2s" fill="freeze"/>
+    <text x="457" y="98" text-anchor="middle">89</text>
+    <text x="625" y="198">85</text>
+    <text x="560" y="410">80</text>
+    <text x="330" y="395" text-anchor="end">82</text>
+    <text x="277" y="205" text-anchor="end">84</text>
+  </g>
+</g>
+
+<!-- Version tag -->
+<text x="820" y="505" font-family="monospace" font-size="10" fill="#585C62" opacity=".5">v2.1</text>
+</svg>
+

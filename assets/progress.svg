@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 220">
+<defs>
+  <linearGradient id="barGrad" x1="0" y1="0" x2="1" y2="0">
+    <stop stop-color="#F4A900"/><stop offset="1" stop-color="#FFCA28"/>
+  </linearGradient>
+  <filter id="barGlow">
+    <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#F4A900" flood-opacity=".3"/>
+  </filter>
+</defs>
+
+<!-- Background -->
+<rect width="680" height="220" rx="16" fill="#121315"/>
+
+<!-- Title -->
+<text x="28" y="36" font-family="'JetBrains Mono', monospace" font-size="12" fill="#F4A900" letter-spacing="2" opacity="0">
+  SYSTEM STATUS // LIVE
+  <animate attributeName="opacity" from="0" to="1" dur="0.4s" begin="0.2s" fill="freeze"/>
+</text>
+
+<!-- Bar 1: BUILDING -->
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.4s" fill="freeze"/>
+  <text x="28" y="74" font-family="monospace" font-size="13" fill="#EBECEF" letter-spacing="2">BUILDING</text>
+  <rect x="190" y="62" width="440" height="14" rx="7" fill="#585C62" opacity=".25"/>
+  <rect x="190" y="62" width="0" height="14" rx="7" fill="url(#barGrad)" filter="url(#barGlow)">
+    <animate attributeName="width" from="0" to="396" dur="1.2s" begin="0.6s" fill="freeze"/>
+  </rect>
+  <text x="598" y="74" font-family="monospace" font-size="11" fill="#F4A900" opacity="0">
+    90%
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.8s" fill="freeze"/>
+  </text>
+  <!-- Pulse at bar tip -->
+  <circle cx="190" cy="69" r="4" fill="#FFCA28" opacity="0">
+    <animate attributeName="cx" from="190" to="586" dur="1.2s" begin="0.6s" fill="freeze"/>
+    <animate attributeName="opacity" values="0;.8;.6;.8" dur="1.5s" begin="0.6s" fill="freeze"/>
+    <animate attributeName="r" values="3;5;3" dur="1.5s" begin="1.8s" repeatCount="indefinite"/>
+  </circle>
+</g>
+
+<!-- Bar 2: LEARNING -->
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="0.7s" fill="freeze"/>
+  <text x="28" y="114" font-family="monospace" font-size="13" fill="#EBECEF" letter-spacing="2">LEARNING</text>
+  <rect x="190" y="102" width="440" height="14" rx="7" fill="#585C62" opacity=".25"/>
+  <rect x="190" y="102" width="0" height="14" rx="7" fill="url(#barGrad)" filter="url(#barGlow)">
+    <animate attributeName="width" from="0" to="308" dur="1.0s" begin="0.9s" fill="freeze"/>
+  </rect>
+  <text x="510" y="114" font-family="monospace" font-size="11" fill="#F4A900" opacity="0">
+    70%
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.9s" fill="freeze"/>
+  </text>
+</g>
+
+<!-- Bar 3: EXPERIMENTING -->
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.0s" fill="freeze"/>
+  <text x="28" y="154" font-family="monospace" font-size="13" fill="#EBECEF" letter-spacing="2">EXPERIMENTING</text>
+  <rect x="190" y="142" width="440" height="14" rx="7" fill="#585C62" opacity=".25"/>
+  <rect x="190" y="142" width="0" height="14" rx="7" fill="url(#barGrad)" filter="url(#barGlow)">
+    <animate attributeName="width" from="0" to="264" dur="0.9s" begin="1.2s" fill="freeze"/>
+  </rect>
+  <text x="466" y="154" font-family="monospace" font-size="11" fill="#F4A900" opacity="0">
+    60%
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.1s" fill="freeze"/>
+  </text>
+</g>
+
+<!-- Bar 4: SHIPPING -->
+<g opacity="0">
+  <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="1.3s" fill="freeze"/>
+  <text x="28" y="194" font-family="monospace" font-size="13" fill="#EBECEF" letter-spacing="2">SHIPPING</text>
+  <rect x="190" y="182" width="440" height="14" rx="7" fill="#585C62" opacity=".25"/>
+  <rect x="190" y="182" width="0" height="14" rx="7" fill="url(#barGrad)" filter="url(#barGlow)">
+    <animate attributeName="width" from="0" to="418" dur="1.1s" begin="1.5s" fill="freeze"/>
+  </rect>
+  <text x="620" y="194" font-family="monospace" font-size="11" fill="#F4A900" opacity="0">
+    95%
+    <animate attributeName="opacity" from="0" to="1" dur="0.3s" begin="2.6s" fill="freeze"/>
+  </text>
+</g>
+
+<!-- Scanning horizontal line -->
+<line x1="28" y1="55" x2="652" y2="55" stroke="#F4A900" stroke-width="1" opacity="0">
+  <animate attributeName="opacity" values="0;.2;0" dur="4s" repeatCount="indefinite" begin="2s"/>
+  <animate attributeName="y1" values="55;200;55" dur="4s" repeatCount="indefinite" begin="2s"/>
+  <animate attributeName="y2" values="55;200;55" dur="4s" repeatCount="indefinite" begin="2s"/>
+</line>
+</svg>
+
