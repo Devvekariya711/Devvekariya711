@@ -1,0 +1,56 @@
+name: Generate Metrics
+
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    steps:
+
+      # --- Isometric Contribution Calendar ---
+      - name: Isometric calendar
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-calendar.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Devvekariya711
+          base: ""
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          config_timezone: Asia/Kolkata
+
+      # --- Language Breakdown ---
+      - name: Languages
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-languages.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Devvekariya711
+          base: ""
+          plugin_languages: yes
+          plugin_languages_indepth: yes
+          plugin_languages_sections: most-used
+          plugin_languages_limit: 8
+          plugin_languages_colors: "F4A900, FFCA28, 121315, 585C62, 9BA1A7, EBECEF, d4a017, e8b923"
+          config_timezone: Asia/Kolkata
+
+      # --- Achievements ---
+      - name: Achievements
+        uses: lowlighter/metrics@latest
+        with:
+          filename: assets/metrics-achievements.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: Devvekariya711
+          base: ""
+          plugin_achievements: yes
+          plugin_achievements_display: compact
+          config_timezone: Asia/Kolkata

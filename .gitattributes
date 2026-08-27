@@ -1,0 +1,10 @@
+# Force LF line endings everywhere — GitHub Actions runners are Linux,
+# and a Windows CRLF at the end of a shell command becomes part of the command.
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
