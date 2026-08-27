@@ -1,13 +1,13 @@
 <div align="center">
 
-<!-- HERO BANNER: Animated Cybernetic Header with Side Portrait & Telemetry -->
+<!-- HERO BANNER: Animated Cybernetic Header with Embedded Side Portrait Poster -->
 <img src="assets/hero.svg" width="100%" alt="Dev Vekariya — AI & Autonomous Systems Architect" />
 
 <br/>
 
 <!-- TYPING ANIMATION: Golden Amber theme, crisp typography -->
 <a href="https://git.io/typing-svg">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&duration=2400&pause=850&color=F4A900&center=true&vCenter=true&width=680&lines=Dev+Vekariya+%E2%80%94+AI+%26+Edge+Architect;Building+Autonomous+Multi-Agent+Systems;240x+Velocity+%E2%80%A2+74%25+Automated+Bug+Detection;01000100+01000101+01010110+%E2%80%A2+LIVE" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=25&duration=2400&pause=850&color=F4A900&center=true&vCenter=true&width=680&lines=Dev+Vekariya+%E2%80%94+AI+%26+Edge+Architect;Building+Autonomous+Multi-Agent+Systems;240x+Velocity+%E2%80%A2+74%25+Automated+Bug+Detection;01000100+01000101+01010110+%E2%80%A2+ONLINE" alt="Typing SVG" />
 </a>
 
 <br/><br/>
@@ -24,18 +24,32 @@
 
 ## `01 / IDENTITY & SIGNAL`
 
-<div align="center">
-  <img src="assets/identity-card.svg" width="100%" alt="Dev Vekariya Identity Matrix" />
-</div>
+<table>
+<tr>
+<td width="36%" align="center" valign="middle">
+  <img src="assets/portrait-front.jpg" width="100%" style="border-radius: 18px; border: 3px solid #F4A900;" alt="Dev Vekariya" />
+</td>
+<td width="64%" valign="top">
 
-<br/>
+### Hi, I'm **Dev Vekariya** 👋
+**AI & Autonomous Systems Architect** based in Gujarat, India.
+
+I build software systems that operate unassisted, eliminate repetitive engineering toil, and turn ambitious ideas into robust, deployed products.
+
+- 🤖 **Currently Architecting**: Multi-agent code analysis & automated review workflows.
+- ⚡ **Engineering Focus**: Autonomous Agents, Agentic RAG, Local LLMs, Low-Latency Audio DSP.
+- 🎯 **Benchmark**: 240x faster defect mitigation with 74% automated bug detection rate.
+- 💬 **Ask me about**: Multi-agent systems, Gemini 2.0 / ADK, Whisper speech pipelines, FastAPI & React.
 
 ```text
-STATUS      :: ONLINE • ACTIVE DEPLOYMENT
-DISCIPLINE  :: MULTI-AGENT ARCHITECTURE • AUTONOMOUS DEVTOOLS • EDGE AI
-PHILOSOPHY  :: LEARN FAST → BUILD RELENTLESSLY → BREAK INTENTIONALLY → SHIP BEAUTIFULLY
-FOCUS       :: LOCAL LLMs • AGENTIC RAG • AUDIO SYNCHRONISATION • DEV ACCELERATION
+STATUS      :: ONLINE • BUILDING RELENTLESSLY
+MODE        :: LEARN → BUILD → BREAK → SHIP
+STACK       :: PYTHON • GEMINI • TS • FASTAPI • DOCKER
 ```
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -97,15 +111,6 @@ FOCUS       :: LOCAL LLMs • AGENTIC RAG • AUDIO SYNCHRONISATION • DEV ACCE
 </td>
 </tr>
 </table>
-
-<br/>
-
-| Index | Project | Core Innovation | Tech Stack | Status |
-|:---:|:---|:---|:---|:---:|
-| `01` | **[Automated DevOps Agent](https://github.com/Devvekariya711/automated_devops_agent)** | Multi-agent code analysis & 240x faster bug mitigation | Gemini 2.0 · Python · Google ADK · Agents | `PROD` |
-| `02` | **[AI Development Workflow](https://github.com/Devvekariya711/ai-development-workflow)** | 8-phase Prompt Stack from zero to production app | TypeScript · React · Next.js · Workflows | `PROD` |
-| `03` | **[LinguaBridge](https://github.com/Devvekariya711/linguabridge)** | Offline edge translation with local speech synthesis | Whisper · NMT · TTS · Python · Kivy | `ACTIVE` |
-| `04` | **[BeatSync](https://github.com/Devvekariya711/beatsync_mypy)** | High-precision multi-device spatial audio engine | Python · Audio DSP · Low-Latency Streams | `ACTIVE` |
 
 ---
 
@@ -210,7 +215,7 @@ FOCUS       :: LOCAL LLMs • AGENTIC RAG • AUDIO SYNCHRONISATION • DEV ACCE
 
 `SYS_01` • `BUILD_04` • `EDGE_09` • `DEVVEKARIYA`
 
-ENGINEERED WITH OBSESSIVE CARE • ANIMATED WITH SMIL & SVG • AUTOMATED VIA GITHUB ACTIONS
+ENGINEERED WITH OBSESSIVE CARE • ANIMATED WITH SMIL &amp; SVG • AUTOMATED VIA GITHUB ACTIONS
 
 `01000100 01000101 01010110`
 
